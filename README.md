@@ -17,6 +17,7 @@ Filho</a></sub>
 - [Purpose and Features](#dart-purpose-and-features)
 - [Project description](#shipit-project-description)
 - [Requirements description](#shipit-requirements-description)
+- [Project Diagram](#shipit-project-diagram)
 - [Api Routes](#shipit-api-routes)
 - [How to Run](#construction_worker-how-to-run)
 - [Found a bug? Missing a specific feature?](#bug-issues)
@@ -39,6 +40,7 @@ This project was made using the follow technologies:
 
 - An API project made with Nest.js (Node.js), Typescript and PostgreSQL for
   studies purpose;
+- Has the objective of helping the order management of a restaurant
 - Authentication;
 - Validation;
 - Database integration;
@@ -88,6 +90,10 @@ restaurant with its customers.
 - user can list 1 category;
 - user can edit 1 category;
 - user can remove 1 category;
+
+### :shipit: Project Diagram
+
+![Manage Orders Diagram](./.github/manage-orders-API-diagram-drawio1.png)
 
 ### :shipit: Api Routes
 
