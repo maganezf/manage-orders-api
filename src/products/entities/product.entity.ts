@@ -23,7 +23,7 @@ export class ProductEntity {
   @Column({ type: 'varchar', nullable: false })
   image: string;
 
-  @Column({ type: 'number', nullable: false })
+  @Column({ type: 'int', nullable: false })
   price: number;
 
   @ManyToOne(() => OrderEntity, order => order, { onDelete: 'CASCADE' })

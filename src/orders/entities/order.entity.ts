@@ -17,7 +17,7 @@ export class OrderEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ type: 'number', nullable: false })
+  @Column({ type: 'int', nullable: false })
   table: number;
 
   @Column({ type: 'varchar', nullable: false, enum: Status })
