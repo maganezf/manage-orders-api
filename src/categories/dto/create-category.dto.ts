@@ -8,10 +8,6 @@ export class CreateCategoryDto implements Omit<CategoryDto, 'id'> {
   name: string;
 
   @IsString()
-  @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
-  username: string;
-
-  @IsString()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_PASSWORD })
   description: string;
 }

@@ -10,8 +10,6 @@ import {
   IsString,
   ValidateNested,
 } from 'class-validator';
-import { ProductDto } from 'src/products/dto/product.dto';
-import { WaiterDto } from 'src/waiters/dto/waiter.dto';
 import { ERROR_MESSAGES, Status } from '../../helpers/constants';
 import { ProductEntity } from '../../products/entities/product.entity';
 import { WaiterEntity } from '../../waiters/entities/waiter.entity';
@@ -35,14 +33,14 @@ export class CreateOrderDto implements Omit<OrderDto, 'id'> {
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
   @ValidateNested({ each: true })
   @Type(() => ProductEntity)
-  products: ProductDto[];
+  products: ProductEntity[];
 
   @IsDefined()
   @IsNotEmptyObject()
   @IsObject()
   @ValidateNested()
   @Type(() => WaiterEntity)
-  waiter: WaiterDto;
+  waiter: WaiterEntity;
 
   @IsString()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_PASSWORD })

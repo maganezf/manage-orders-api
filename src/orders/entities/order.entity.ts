@@ -1,7 +1,5 @@
 import { Status } from 'src/helpers/constants';
-import { ProductDto } from 'src/products/dto/product.dto';
 import { ProductEntity } from 'src/products/entities/product.entity';
-import { WaiterDto } from 'src/waiters/dto/waiter.dto';
 import { WaiterEntity } from 'src/waiters/entities/waiter.entity';
 import {
   Column,
@@ -26,12 +24,17 @@ export class OrderEntity {
   @Column({ type: 'varchar', nullable: false })
   createdAt: string;
 
-  @OneToMany(() => ProductEntity, product => product, { onDelete: 'SET NULL' })
+  @OneToMany(() => ProductEntity, product => product.order, {
+    onDelete: 'NO ACTION',
+    eager: true,
+  })
   @JoinColumn()
-  products: ProductDto[];
+  products: ProductEntity[];
 
-  @ManyToOne(() => WaiterEntity, waiter => waiter, { onDelete: 'CASCADE' })
-  waiter: WaiterDto;
+  @ManyToOne(() => WaiterEntity, waiter => waiter, {
+    eager: true,
+  })
+  waiter: WaiterEntity;
 
   @Column({ type: 'varchar', nullable: false })
   customerName: string;

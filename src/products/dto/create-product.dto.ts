@@ -6,19 +6,11 @@ import {
   IsNumber,
   IsObject,
   IsString,
-  IsUUID,
   ValidateNested,
 } from 'class-validator';
-import { CreateCategoryDto } from '../../categories/dto/create-category.dto';
+import { CategoryEntity } from 'src/categories/entities/category.entity';
 import { ERROR_MESSAGES } from '../../helpers/constants';
 import { ProductDto } from './product.dto';
-
-class CategoryDto extends CreateCategoryDto {
-  @IsUUID()
-  @IsString()
-  @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
-  id: string;
-}
 
 export class CreateProductDto implements Omit<ProductDto, 'id'> {
   @IsString()
@@ -41,6 +33,6 @@ export class CreateProductDto implements Omit<ProductDto, 'id'> {
   @IsNotEmptyObject()
   @IsObject()
   @ValidateNested()
-  @Type(() => CategoryDto)
-  category: CategoryDto;
+  @Type(() => CategoryEntity)
+  category: CategoryEntity;
 }

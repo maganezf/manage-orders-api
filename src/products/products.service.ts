@@ -65,6 +65,7 @@ export class ProductsService {
 
     const product = { ...oldProduct, ...updatedProduct };
 
+    await this.productsRepository.remove(oldProduct);
     await this.productsRepository.save(product);
 
     return {

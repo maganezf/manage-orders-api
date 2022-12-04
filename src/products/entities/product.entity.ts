@@ -26,7 +26,7 @@ export class ProductEntity {
   @Column({ type: 'int', nullable: false })
   price: number;
 
-  @ManyToOne(() => OrderEntity, order => order, { onDelete: 'CASCADE' })
+  @ManyToOne(() => OrderEntity, order => order.products)
   order: OrderEntity;
 
   @OneToOne(() => CategoryEntity, category => category, {

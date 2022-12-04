@@ -1,6 +1,13 @@
 import { hashSync } from 'bcrypt';
 import { Exclude } from 'class-transformer';
-import { BeforeInsert, Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { OrderEntity } from 'src/orders/entities/order.entity';
+import {
+  BeforeInsert,
+  Column,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity({ name: 'waiter' })
 export class WaiterEntity {
@@ -16,6 +23,9 @@ export class WaiterEntity {
   @Column({ type: 'varchar', nullable: false })
   @Exclude()
   password: string;
+
+  @OneToMany(() => OrderEntity, order => order)
+  orders: OrderEntity[];
 
   @BeforeInsert()
   hashPassword() {

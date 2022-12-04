@@ -52,9 +52,7 @@ export class OrdersService {
     id: string,
     updatedOrder: Partial<OrderDto>
   ): Promise<ResponseDto<Partial<OrderDto>>> {
-    const oldOrder = await this.ordersRepository.findOneBy({
-      id,
-    });
+    const oldOrder = await this.ordersRepository.findOneBy({ id });
 
     if (!oldOrder?.id) {
       throw new HttpException(
@@ -65,6 +63,7 @@ export class OrdersService {
 
     const order = { ...oldOrder, ...updatedOrder };
 
+    await this.ordersRepository.remove(oldOrder);
     await this.ordersRepository.save(order);
 
     return {
