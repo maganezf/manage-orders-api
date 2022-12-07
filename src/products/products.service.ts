@@ -14,7 +14,16 @@ export class ProductsService {
   ) {}
 
   async create(product: CreateProductDto): Promise<ResponseDto<ProductEntity>> {
+    const products = await this.productsRepository.find();
     const newProduct = this.productsRepository.create(product);
+
+    if (products.some(product => product.name === newProduct.name)) {
+      throw new HttpException(
+        'Already exists one product with this username',
+        HttpStatus.NOT_ACCEPTABLE
+      );
+    }
+
     await this.productsRepository.save(newProduct);
 
     return {

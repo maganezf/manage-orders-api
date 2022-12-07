@@ -14,7 +14,16 @@ export class WaitersService {
   ) {}
 
   async create(waiter: CreateWaiterDto): Promise<ResponseDto<WaiterEntity>> {
+    const waiters = await this.waitersRepository.find();
     const newWaiter = this.waitersRepository.create(waiter);
+
+    if (waiters.some(waiter => waiter.username === newWaiter.username)) {
+      throw new HttpException(
+        'Already exists one waiter with this username',
+        HttpStatus.NOT_ACCEPTABLE
+      );
+    }
+
     await this.waitersRepository.save(newWaiter);
 
     return {

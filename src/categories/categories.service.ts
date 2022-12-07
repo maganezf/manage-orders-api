@@ -16,7 +16,16 @@ export class CategoriesService {
   async create(
     category: CreateCategoryDto
   ): Promise<ResponseDto<CategoryEntity>> {
+    const categories = await this.categoriesRepository.find();
     const newCategory = this.categoriesRepository.create(category);
+
+    if (categories.some(category => category.name === newCategory.name)) {
+      throw new HttpException(
+        'Already exists one category with this username',
+        HttpStatus.NOT_ACCEPTABLE
+      );
+    }
+
     await this.categoriesRepository.save(newCategory);
 
     return {
