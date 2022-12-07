@@ -20,7 +20,7 @@ export class WaiterEntity {
   @Column({ type: 'varchar', nullable: false })
   username: string;
 
-  @Column({ type: 'varchar', nullable: false })
+  @Column({ type: 'varchar', nullable: false, select: false })
   @Exclude()
   password: string;
 
