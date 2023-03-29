@@ -1,18 +1,14 @@
 import { Type } from 'class-transformer';
 import {
   IsArray,
-  IsDefined,
   IsEnum,
   IsNotEmpty,
-  IsNotEmptyObject,
   IsNumber,
-  IsObject,
   IsString,
   ValidateNested,
 } from 'class-validator';
 import { ERROR_MESSAGES, Status } from '../../helpers/constants';
 import { ProductEntity } from '../../products/entities/product.entity';
-import { WaiterEntity } from '../../waiters/entities/waiter.entity';
 import { OrderDto } from './order.dto';
 
 export class CreateOrderDto implements Omit<OrderDto, 'id'> {
@@ -34,13 +30,6 @@ export class CreateOrderDto implements Omit<OrderDto, 'id'> {
   @ValidateNested({ each: true })
   @Type(() => ProductEntity)
   products: ProductEntity[];
-
-  @IsDefined()
-  @IsNotEmptyObject()
-  @IsObject()
-  @ValidateNested()
-  @Type(() => WaiterEntity)
-  waiter: WaiterEntity;
 
   @IsString()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_PASSWORD })

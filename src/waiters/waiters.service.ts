@@ -27,7 +27,7 @@ export class WaitersService {
     await this.waitersRepository.save(newWaiter);
 
     return {
-      message: `The waiter '${newWaiter.name}' was created successfully`,
+      message: `The waiter '${newWaiter.username}' was created successfully`,
       data: newWaiter,
     };
   }

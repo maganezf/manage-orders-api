@@ -1,5 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { OrderEntity } from 'src/orders/entities/order.entity';
 import { Repository } from 'typeorm';
 import type { ResponseDto } from '../@types';
 import { ProductEntity } from '../products/entities/product.entity';
@@ -10,7 +11,9 @@ import type { ProductDto } from './dto/product.dto';
 export class ProductsService {
   constructor(
     @InjectRepository(ProductEntity)
-    private readonly productsRepository: Repository<ProductEntity>
+    private readonly productsRepository: Repository<ProductEntity>,
+    @InjectRepository(OrderEntity)
+    private readonly ordersRepository: Repository<OrderEntity>
   ) {}
 
   async create(product: CreateProductDto): Promise<ResponseDto<ProductEntity>> {
@@ -94,6 +97,15 @@ export class ProductsService {
     }
 
     await this.productsRepository.remove(product);
+
+    const orders = await this.ordersRepository.find();
+
+    const ordersWithThisProduct = orders.filter(
+      product => product.id === product.id
+    );
+    ordersWithThisProduct.forEach(
+      async order => await this.ordersRepository.remove(order)
+    );
 
     const data = await this.productsRepository.find();
 

@@ -18,7 +18,10 @@ export class AuthService {
     };
 
     return {
-      token: this.jwtService.sign(payload),
+      message: 'Login made successfully',
+      data: {
+        token: this.jwtService.sign(payload),
+      },
     };
   }
 

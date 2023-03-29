@@ -26,13 +26,15 @@ export class ProductEntity {
   @Column({ type: 'int', nullable: false })
   price: number;
 
-  @ManyToOne(() => OrderEntity, order => order.products)
+  @ManyToOne(() => OrderEntity, order => order.products, {
+    createForeignKeyConstraints: false,
+  })
   order: OrderEntity;
 
   @OneToOne(() => CategoryEntity, category => category, {
     eager: true,
     cascade: true,
-    onDelete: 'CASCADE',
+    createForeignKeyConstraints: false,
   })
   @JoinColumn()
   category: CategoryEntity;

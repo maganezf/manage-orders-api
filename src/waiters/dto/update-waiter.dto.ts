@@ -18,10 +18,6 @@ export class UpdateWaiterBodyDto implements WaiterDto {
 
   @IsString()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
-  name: string;
-
-  @IsString()
-  @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
   username: string;
 
   @IsString()

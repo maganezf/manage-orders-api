@@ -1,11 +1,9 @@
 import { Status } from 'src/helpers/constants';
 import { ProductEntity } from 'src/products/entities/product.entity';
-import { WaiterEntity } from 'src/waiters/entities/waiter.entity';
 import {
   Column,
   Entity,
   JoinColumn,
-  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
@@ -25,16 +23,11 @@ export class OrderEntity {
   createdAt: string;
 
   @OneToMany(() => ProductEntity, product => product.order, {
-    onDelete: 'NO ACTION',
     eager: true,
+    cascade: true,
   })
   @JoinColumn()
   products: ProductEntity[];
-
-  @ManyToOne(() => WaiterEntity, waiter => waiter, {
-    eager: true,
-  })
-  waiter: WaiterEntity;
 
   @Column({ type: 'varchar', nullable: false })
   customerName: string;
