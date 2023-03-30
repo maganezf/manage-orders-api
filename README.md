@@ -1,10 +1,6 @@
 <div align="center">
 
-## Manage Orders API
-
-### An API project made with Nest.js (Node.js), Typescript, and PostgreSQL for studies purpose
-
-#### with the objective of helping the order management of a restaurant
+## Manage Orders (Server)
 
 <sub>Built with ❤︎ by <a href="https://github.com/maganezf">Maganez
 Filho</a></sub>
@@ -38,9 +34,9 @@ This project was made using the follow technologies:
 
 ### :dart: Purpose and Features
 
-- An API project made with Nest.js (Node.js), Typescript and PostgreSQL for
+- An API project made with Nest.js (Node.js), Typescript, and PostgreSQL for
   studies purpose;
-- Has the objective of helping the order management of a restaurant
+- It has the objective of helping the order management of a restaurant;
 - Authentication;
 - Validation;
 - Database integration;
@@ -93,7 +89,7 @@ restaurant with its customers.
 
 ### :shipit: Project Diagram
 
-![Manage Orders Diagram](./.github/manage-orders-API-diagram-drawio1.png)
+![Manage Orders Diagram](./.github/Manage%20Orders%20API.drawio.png)
 
 ### :shipit: Api Routes
 
@@ -131,14 +127,13 @@ $ git clone https://github.com/maganezf/manage-orders-api.git && cd manage-order
 # Install Dependencies
 $ npm install or yarn install
 
-# Run Application:
-# development
+# Run in development mode
 $ npm run start or yarn start
 
-# watch mode
+# Run in development watch mode
 $ npm run start:dev or yarn start:dev
 
-# production mode
+# Run in production mode
 $ npm run start:prod or yarn start:prod
 ```
 
@@ -147,7 +142,7 @@ Go to <http://localhost:3333/api> to see the result.
 ## :bug: Issues
 
 Feel free to **file a new issue** with a respective title and description on
-this repository. If you already found a solution to your problem, **i would love
+this repository. If you already found a solution to your problem, **I would love
 to review your pull request**!
 
 ## :tada: Contributing
