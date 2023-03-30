@@ -108,9 +108,10 @@ restaurant with its customers.
 1. Make sure you have docker installed;
 2. Install docker postgres image;
     (command: docker pull postgres)
-3. Run your database (passing the password database)
+3. Set up your environment variables ('.env' file) based on the '.env.example' file
+4. Run your database (passing the password database)
     (command: docker run --name postgres -e POSTGRES_PASSWORD=yoursecretpassword -p 5432:5432 -d postgres);
-4. Now you can run your server application
+5. Now you can run your server application
 ```
 
 ## :construction_worker: How to Run
