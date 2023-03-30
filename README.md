@@ -15,6 +15,7 @@ Filho</a></sub>
 - [Requirements description](#shipit-requirements-description)
 - [Project Diagram](#shipit-project-diagram)
 - [Api Routes](#shipit-api-routes)
+- [Setup before run](#construction_worker-setup-before-run)
 - [How to Run](#construction_worker-how-to-run)
 - [Found a bug? Missing a specific feature?](#bug-issues)
 - [Contributing](#tada-contributing)
@@ -101,22 +102,18 @@ restaurant with its customers.
 | PATCH  | /api/(orders, waiters, products, or categories)?id=:id | HAS QUERY PARAM (id: string) | update a specific (order, waiter, product or category) by id |
 | DELETE | /api/(orders, waiters, products, or categories)/:id    | HAS PARAM (id: string )      | remove a specific (user, waiter, product or category) by id  |
 
-## :construction_worker: How to Run
+## :construction_worker: Setup before run
 
 ```bash
-# First steps:
-1. Have sure that have installed the docker on your machine
-
-2. Run this command to create your postgres container:
-
-$ docker run --name postgres -e POSTGRES_PASSWORD=123456789 -p 5432:5432 -d postgres`
-
-3. Create a new table to use in this application (on your postgres database)
-
-4. Set up your env variables with base on '.env.example' file
-
-5. Follow the next steps below
+1. Make sure you have docker installed;
+2. Install docker postgres image;
+    (command: docker pull postgres)
+3. Run your database (passing the password database)
+    (command: docker run --name postgres -e POSTGRES_PASSWORD=yoursecretpassword -p 5432:5432 -d postgres);
+4. Now you can run your server application
 ```
+
+## :construction_worker: How to Run
 
 ```bash
 # Clone Repository and change directory to project
