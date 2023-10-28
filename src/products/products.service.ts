@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { OrderEntity } from 'src/orders/entities/order.entity';
 import { Repository } from 'typeorm';
 import type { ResponseDto } from '../@types';
+import { OrderEntity } from '../orders/entities/order.entity';
 import { ProductEntity } from '../products/entities/product.entity';
 import type { CreateProductDto } from './dto/create-product.dto';
 import type { ProductDto } from './dto/product.dto';

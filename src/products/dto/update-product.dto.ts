@@ -9,7 +9,7 @@ import {
   IsUUID,
   ValidateNested,
 } from 'class-validator';
-import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
+import { CreateCategoryDto } from '../../categories/dto/create-category.dto';
 
 import { ERROR_MESSAGES } from '../../helpers/constants';
 import { ProductDto } from './product.dto';
@@ -41,10 +41,6 @@ export class UpdateProductBodyDto implements ProductDto {
   @IsString()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
   description: string;
-
-  @IsString()
-  @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })
-  image: string;
 
   @IsNumber()
   @IsNotEmpty({ message: ERROR_MESSAGES.INVALID_REQUIRED_FIELD })

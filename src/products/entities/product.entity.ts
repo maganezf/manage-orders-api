@@ -1,5 +1,3 @@
-import { CategoryEntity } from 'src/categories/entities/category.entity';
-import { OrderEntity } from 'src/orders/entities/order.entity';
 import {
   Column,
   Entity,
@@ -8,6 +6,8 @@ import {
   OneToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { CategoryEntity } from '../../categories/entities/category.entity';
+import { OrderEntity } from '../../orders/entities/order.entity';
 
 @Entity({ name: 'product' })
 export class ProductEntity {
@@ -19,9 +19,6 @@ export class ProductEntity {
 
   @Column({ type: 'varchar', nullable: false })
   description: string;
-
-  @Column({ type: 'varchar', nullable: false })
-  image: string;
 
   @Column({ type: 'int', nullable: false })
   price: number;
