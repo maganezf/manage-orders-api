@@ -1,5 +1,3 @@
-import { Status } from 'src/helpers/constants';
-import { ProductEntity } from 'src/products/entities/product.entity';
 import {
   Column,
   Entity,
@@ -7,6 +5,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Status } from '../../helpers/constants';
+import { ProductEntity } from '../../products/entities/product.entity';
 
 @Entity({ name: 'order' })
 export class OrderEntity {

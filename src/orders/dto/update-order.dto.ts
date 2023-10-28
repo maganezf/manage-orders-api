@@ -8,8 +8,8 @@ import {
   IsUUID,
   ValidateNested,
 } from 'class-validator';
-import { ProductDto } from 'src/products/dto/product.dto';
-import { ProductEntity } from 'src/products/entities/product.entity';
+import { ProductDto } from '../../products/dto/product.dto';
+import { ProductEntity } from '../../products/entities/product.entity';
 
 import { ERROR_MESSAGES, Status } from '../../helpers/constants';
 import { OrderDto } from './order.dto';
