@@ -11,11 +11,11 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateCategoryDto } from 'src/categories/dto/create-category.dto';
+import { CreateCategoryDto } from '../categories/dto/create-category.dto';
 import {
   UpdateCategoryBodyDto,
   UpdateCategoryQueryDto,
-} from 'src/categories/dto/update-category.dto';
+} from '../categories/dto/update-category.dto';
 import { CategoriesService } from './categories.service';
 
 @Controller('/api/categories')
